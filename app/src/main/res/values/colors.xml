@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+<!--    <color name="black">#FF000000</color>-->
+<!--    <color name="white">#FFFFFFFF</color>-->
+
+    <!-- Light Theme Colors -->
+    <color name="lightOrange">#FFB74D</color>
+    <color name="lightBlue">#81D4FA</color>
+    <color name="lightGrey">#F5F5F5</color>
+    <color name="darkGrey">#333333</color>
+    <color name="green">#4CAF50</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="darkOrange">#FF8A65</color>
+    <color name="darkBlue">#42A5F5</color>
+    <color name="darkGreyDT">#212121</color>
+    <color name="lightGreyDT">#CCCCCC</color>
+    <color name="teal">#009688</color>
+
+<!--    Same theme color-->
 </resources>
