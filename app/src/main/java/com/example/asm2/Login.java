@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
         tvLogin_SignUp = findViewById(R.id.tvLogin_SignUp);
         btnLogin = findViewById(R.id.btnLogin);
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         tvLogin_SignUp.setOnClickListener(view -> {
             startActivity(new Intent(Login.this, SignUp.class));
