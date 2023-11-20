@@ -14,6 +14,7 @@
         android:src="@drawable/ic_fpolypng"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_LoginUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
@@ -27,6 +28,7 @@
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_LoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"

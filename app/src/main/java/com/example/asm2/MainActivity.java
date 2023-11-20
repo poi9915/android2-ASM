@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Insert thành công", Toast.LENGTH_SHORT).show();
                 list.add(product);
                 adapter.notifyDataSetChanged();
-                updateDrawerContent();
                 dialog.dismiss();
             } else {
                 Toast.makeText(this, "Insert Thất bại", Toast.LENGTH_SHORT).show();
@@ -97,11 +96,5 @@ public class MainActivity extends AppCompatActivity {
         });
         dialog.show();
 
-    }
-
-    public void updateDrawerContent(){
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)){
-            drawer_layout.closeDrawer(GravityCompat.START);
-        }
     }
 }

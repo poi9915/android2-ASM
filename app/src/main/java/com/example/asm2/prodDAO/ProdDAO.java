@@ -46,7 +46,6 @@ public class ProdDAO {
         }
         return user;
     }
-
     public long insertProd(Product product){
         ContentValues values = new ContentValues();
         values.put("prodName" , product.getName());
