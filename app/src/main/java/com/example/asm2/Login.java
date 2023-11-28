@@ -2,7 +2,6 @@ package com.example.asm2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,15 +9,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.example.asm2.Model.User;
+import com.example.asm2.prodDAO.ProdDAO;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
     TextView tvLogin_SignUp;
     Button btnLogin;
-    TextInputLayout et_LoginUsername ,et_Password;
+    TextInputLayout et_LoginUsername, et_Password;
 
     //test
-    private String TestUser ="ph45090";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,22 +32,27 @@ public class Login extends AppCompatActivity {
 
         tvLogin_SignUp = findViewById(R.id.tvLogin_SignUp);
         btnLogin = findViewById(R.id.btnLogin);
-
+        ProdDAO dao = new ProdDAO(this);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         tvLogin_SignUp.setOnClickListener(view -> {
-            Toast.makeText(Login.this , "Sai username và password" , Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(Login.this, SignUp.class));
         });
-        btnLogin.setOnClickListener(view ->{
-            if (
-                    !et_LoginUsername.getEditText().getText().toString().equals(TestUser) ||
-                            !et_Password.getEditText().getText().toString().equals(TestUser)
-            ){
-                return;
+
+        ArrayList<User> listUser = dao.getALlUser();
+        btnLogin.setOnClickListener(view -> {
+            String username = et_LoginUsername.getEditText().getText().toString();
+            String pass = et_Password.getEditText().getText().toString();
+            for (User u :
+                    listUser) {
+                if (u.getUsername().equals(username) && u.getPass().equals(pass)) {
+                    startActivity(new Intent(Login.this, MainActivity.class));
+                    Toast.makeText(this, "Đăng nhập thành công!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
-            startActivity(new Intent(Login.this , MainActivity.class));
+            Toast.makeText(this, "Sai mật khẩu hoặc tài khoản!!", Toast.LENGTH_SHORT).show();
         });
     }
 }

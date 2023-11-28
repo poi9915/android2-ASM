@@ -3,50 +3,36 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/drawer_layout">
+    tools:context=".MainActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/appBarHome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minWidth="?attr/actionBarSize"
-                app:navigationIcon="@drawable/ic_desity"
-                app:title="Quản lý sản phẩm" />
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-
-            android:id="@+id/fab_Add"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:contentDescription="fabAdd"
-            android:src="@drawable/ic_edit" />
+            android:fitsSystemWindows="true"
+            android:title="@null" />
 
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/naviView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/navi_header"
-        app:menu="@menu/nmu_item_navig"/>
+        app:menu="@menu/nmu_item_navig" />
 </androidx.drawerlayout.widget.DrawerLayout>

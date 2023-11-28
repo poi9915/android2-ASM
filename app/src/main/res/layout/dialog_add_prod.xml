@@ -5,9 +5,10 @@
     android:gravity="center"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/dialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm sản phẩm"
+        android:text="null"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_margin="10dp"/>
@@ -48,10 +49,10 @@
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
-        android:id="@+id/btnAddProd"
+        android:id="@+id/btnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm"
+        android:text="null"
         android:layout_gravity="right"
         android:layout_margin="15dp"/>
 </LinearLayout>

@@ -2,52 +2,86 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="15dp"
-    android:gravity="center">
+    android:layout_height="100dp"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_recIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_category_24px" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="15dp"
+            android:layout_toRightOf="@id/img_recIcon"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_recName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="spName" />
+
+            <TextView
+                android:id="@+id/tv_recDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="spDIC" />
+            <TextView
+                android:id="@+id/tv_recNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="spNUM" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="184dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
             <ImageView
-                android:id="@+id/img_recIcon"
+                android:id="@+id/iv_recUpdate"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/ic_category_24px"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="15dp"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/img_recIcon"
-                >
-                <TextView
-                    android:id="@+id/tv_recName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="spName"/>
-                <TextView
-                    android:id="@+id/tv_recDes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="spDIC"/>
-
-            </LinearLayout>
-
+                android:elevation="10dp"
+                android:background="?android:selectableItemBackground"
+                android:src="@drawable/ic_edit"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
             <ImageView
                 android:id="@+id/iv_recRevome"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="184dp"
-                android:layout_marginEnd="15dp"
-                android:layout_centerVertical="true"
+                android:elevation="10dp"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_delete" />
+        </LinearLayout>
 
-        </RelativeLayout>
+
+    </RelativeLayout>
 
 
 </com.google.android.material.card.MaterialCardView>

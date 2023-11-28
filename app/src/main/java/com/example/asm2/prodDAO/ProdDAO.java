@@ -41,38 +41,50 @@ public class ProdDAO {
                 String pass = cursor.getString(1);
                 String fullName = cursor.getString(2);
 
-                user.add(new User(userName , pass ,fullName));
+                user.add(new User(userName, pass, fullName));
             } while (cursor.moveToNext());
         }
         return user;
     }
-    public long insertProd(Product product){
+
+    public long insertProd(Product product) {
         ContentValues values = new ContentValues();
-        values.put("prodName" , product.getName());
-        values.put("price" , product.getPrice());
-        values.put("soLuong" , product.getSoLuong());
-        return db.insert(TB_PROD , null , values);
+        values.put("prodName", product.getName());
+        values.put("price", product.getPrice());
+        values.put("soLuong", product.getSoLuong());
+        return db.insert(TB_PROD, null, values);
     }
-    public ArrayList<Product> getAllProd(){
+
+    public ArrayList<Product> getAllProd() {
         ArrayList<Product> list = new ArrayList<>();
-        Cursor cursor =  db.rawQuery("SELECT * FROM " + TB_PROD , null);
-        if (cursor.getCount() > 0){
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TB_PROD, null);
+        if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
                 int id = cursor.getInt(0);
                 String name = cursor.getString(1);
                 String price = cursor.getString(2);
                 String soL = cursor.getString(3);
-                list.add(new Product(id , name , price ,soL));
-            }while (cursor.moveToNext());
+                list.add(new Product(id, name, price, soL));
+            } while (cursor.moveToNext());
         }
         return list;
     }
+
     public int deleteProdByID(int id) {
         return db.delete(TB_PROD, "prodID = ?", new String[]{String.valueOf(id)});
     }
-    public int deleteProdByObj(Product product){
+
+    public int deleteProdByObj(Product product) {
         String[] id = new String[]{String.valueOf(product.getIdProd())};
-        return db.delete(TB_PROD , "ID=?" , id);
+        return db.delete(TB_PROD, "ID=?", id);
+    }
+
+    public int updateProdByObj(Product product) {
+        ContentValues values = new ContentValues();
+        values.put("prodName", product.getName());
+        values.put("price", product.getPrice());
+        values.put("soLuong", product.getSoLuong());
+        return db.update(TB_PROD , values ,"prodID = ?",new String[]{String.valueOf(product.getIdProd())});
     }
 }
