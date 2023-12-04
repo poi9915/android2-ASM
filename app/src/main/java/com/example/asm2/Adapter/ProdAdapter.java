@@ -59,6 +59,9 @@ public class ProdAdapter extends RecyclerView.Adapter<ProdAdapter.ViewHolder> {
                 // no button event
 //                    auto dis
             });
+
+
+            String sql = "";
             builder.setPositiveButton("Yes", (dialog, which) -> {
                 //Yes button event
                 ProdDAO dap = new ProdDAO(context);

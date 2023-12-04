@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.asm2.Framents.InfoFragment;
 import com.example.asm2.Framents.ManagerFragment;
 import com.example.asm2.Framents.SettingFragment;
 import com.example.asm2.prodDAO.ProdDAO;
@@ -54,12 +55,13 @@ public class MainActivity extends AppCompatActivity {
                     setFragment(new ManagerFragment());
                 } else if (item.getItemId() == R.id.imnu_Info) {
                     toolbar.setTitle("Giới Thiệu");
-                    setFragment(new SettingFragment());
+                    setFragment(new InfoFragment());
                 } else if (item.getItemId() == R.id.imnu_setting) {
                     toolbar.setTitle("Cài đặt");
                     setFragment(new SettingFragment());
                 } else if (item.getItemId() == R.id.imnu_logout) {
-                    startActivity(new Intent(MainActivity.this, Login.class));
+//                    System.exit(0);
+                    finish();
                 }
                 drawer_layout.close();
                 return true;

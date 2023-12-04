@@ -16,6 +16,6 @@
         <item
             android:id="@+id/imnu_logout"
             android:icon="@drawable/ic_logout_24px"
-            android:title="Đẵng xuất"/>
+            android:title="Đăng xuất"/>
     </group>
 </menu>

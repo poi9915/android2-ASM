@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.asm2.Model.User;
 import com.example.asm2.prodDAO.ProdDAO;
@@ -23,6 +24,11 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         appBarSignUp = findViewById(R.id.appBarSignUp);
         ProdDAO dao = new ProdDAO(this);
+
+        setSupportActionBar(appBarSignUp);
+        appBarSignUp.setNavigationOnClickListener(view ->{
+            startActivity(new Intent(SignUp.this ,Login.class));
+        });
         et_UsernameSignUp= findViewById(R.id.et_UsernameSignUp);
         et_PasswordSignUp = findViewById(R.id.et_passwordSignUp);
         et_FullnessSignUp = findViewById(R.id.et_FullnameSignUp);
@@ -34,6 +40,7 @@ public class SignUp extends AppCompatActivity {
             String fullname = et_FullnessSignUp.getEditText().getText().toString();
 
             if (dao.insertUser(new User(username,pass,fullname))> 0 ){
+                Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(SignUp.this, Login.class));
             }
 

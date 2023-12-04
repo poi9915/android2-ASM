@@ -1,6 +1,7 @@
 package com.example.asm2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,7 +34,13 @@ public class Login extends AppCompatActivity {
         tvLogin_SignUp = findViewById(R.id.tvLogin_SignUp);
         btnLogin = findViewById(R.id.btnLogin);
         ProdDAO dao = new ProdDAO(this);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        SharedPreferences preferences = getSharedPreferences("PREFS_THEME" ,MODE_PRIVATE);
+        boolean isTheme = preferences.getBoolean("darkTheme" , false);
+        if (isTheme){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         tvLogin_SignUp.setOnClickListener(view -> {
 
